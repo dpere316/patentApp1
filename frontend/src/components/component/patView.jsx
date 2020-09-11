@@ -3,7 +3,7 @@ import { Card } from "react-bootstrap";
 import Iframe from 'react-iframe';
 //import { useAuth0 } from "@auth0/auth0-react";
 
-const regex = /(<([^>]+)>)/ig;
+//const regex = /(<([^>]+)>)/ig;
 
 
 const PatView = (props) => {
