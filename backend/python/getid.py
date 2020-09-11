@@ -1,21 +1,14 @@
 import pymongo
 import dns
 import json
-
-print("here")
-
-#client = pymongo.MongoClient("mongodb+srv://LeonardoRodriguez:Srpijmu@cluster0.8plx6.mongodb.net/PatentData?retryWrites=true&w=majority", readPreference="secondary")
-client = pymongo.MongoClient("mongodb://localhost:27017/?readPreference=secondary&ssl=false")
-
-patCol = client['PatentData']['Patents']
-usrCol = client['PatentData']['Users']
+import mongo_connect
 
 def getId():
   import random
   import time
   random.seed(time.time())
-  doc = random.randint(1, patCol.count())
-  pat = patCol.find({})[doc-1]
+  doc = random.randint(1, mongo_connect.patCol.count())
+  pat = mongo_connect.patCol.find({})[doc-1]
   ret = {
     "id" : pat['documentId']['id'],
     "patentCorpus" : pat['patentCorpus']

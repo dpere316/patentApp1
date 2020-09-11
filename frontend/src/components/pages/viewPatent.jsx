@@ -25,7 +25,7 @@ class viewPatent extends Component {
   }
   
   callApi = async () => {
-    const response = await fetch('/api/get-new-pat');
+    const response = await fetch('/api/get-pat-data');
     const body = await response.json();  
 
     if (response.status !== 200) throw Error(body.message);
