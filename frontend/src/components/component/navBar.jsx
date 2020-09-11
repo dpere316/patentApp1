@@ -6,7 +6,7 @@ class navBar extends Component {
   render(){
     return (      
       <Navbar bg="primary" expand="lg" variant="dark">
-        <Navbar.Brand href="#">
+        <Navbar.Brand href="/">
           Patent App
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
