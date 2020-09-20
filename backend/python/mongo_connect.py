@@ -3,7 +3,7 @@ import dns
 import json
 
 #client = pymongo.MongoClient("mongodb+srv://LeonardoRodriguez:Srpijmu@cluster0.8plx6.mongodb.net/PatentData?retryWrites=true&w=majority", readPreference="secondary")
-client = pymongo.MongoClient("mongodb://localhost:27017/?readPreference=primary&ssl=false")
+client = pymongo.MongoClient("mongodb://compute1.cognac.cs.fiu.edu:59122/?readPreference=primary&ssl=false")
 
 patCol = client['PatentData']['Patents']
 usrCol = client['PatentData']['Users']
