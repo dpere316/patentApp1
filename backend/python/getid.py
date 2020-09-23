@@ -10,7 +10,7 @@ def getId():
   doc = random.randint(1, mongo_connect.patCol.count())
   pat = mongo_connect.patCol.find({})[doc-1]
   ret = {
-    "id" : pat['documentId']['id'],
+    "id" : pat['documentId'],
     "patentCorpus" : pat['patentCorpus']
   }
   return ret
