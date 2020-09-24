@@ -1,30 +1,53 @@
-import React from "react";
+import React, { Component } from "react";
 import ViewPatent from "./components/pages/viewPatent"; // viewpatent
 import Home from "./components/pages/home"; // home
 import Login from "./components/pages/login"; // login
+import Profile from "./components/pages/profile"; // profile
 import NavBar from "./components/component/navBar"; // navbar
 import { Switch, Route } from "react-router-dom";
 import "./styles/custom.scss"; 
-import { useAuth0 } from '@auth0/auth0-react'
 import Logout from "./components/pages/logout";
 
-function App() {
+class App extends Component {
 
-  const { isAuthenticated, user } = useAuth0();
+  constructor() {
+    super();
 
-  console.log(user);
+    this.state = {
+      auth: ''
+    };
+  }
 
-  return (
-    <div>
-      <NavBar loginStat={isAuthenticated} user={user}/>
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/Patents" component={ViewPatent} />
-        <Route path="/Log" component={Login} />
-        <Route path="/Logout" component={Logout} />
-      </Switch>
-    </div>
-  );
+  componentDidMount() {
+    console.log(document.cookies);
+    this.callApi()
+      .then(res => this.setState({ auth: res }))
+      .catch(err => console.log(err));
+  }
+
+  callApi = async () => {
+    const response = await fetch('/auth/get-auth-status');
+    const body = await response.json();  
+
+    if (response.status !== 200) throw Error(body.message);
+
+    return body;
+  };
+
+  render(){
+    return (
+      <div>
+        <NavBar loginStat={this.state.auth}/>
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/Patents" component={ViewPatent} />
+          <Route path="/Profile"  component={() => <Profile auth={this.state.auth}/>} />
+          <Route path="/Log" component={Login} />
+          <Route path="/Logout" component={Logout} />
+        </Switch>
+      </div>
+    );
+  }
 }
 
 export default App;
