@@ -15,7 +15,7 @@ class navBar extends Component {
           <Nav.Link className="active" href="/home">Home</Nav.Link>
           <Nav.Link href="/Patents">Patents</Nav.Link>
           <Nav.Link href="/About">About</Nav.Link>
-          {roleSpecific(this.props.user, this.props.loginStat)}
+          {roleSpecific(this.props.loginStat)}
           {inOrOut(this.props.loginStat)}
         </Nav>
         </Navbar.Collapse>
@@ -32,13 +32,13 @@ function inOrOut(login) {
   }
 }
 
-function roleSpecific(user, auth) {
-  if (!auth){
+function roleSpecific(auth) {
+  if (!auth['auth']){
     return;
   }
-  if (user['https://patentapp/role'] === "user"){
+  if (auth['role'] === "annotator"){
     return (<Nav.Link href="/Profile">Profile</Nav.Link>);
-  }else if (user['https://patentapp/role'] === "admin"){
+  }else if (auth['role'] === "admin"){
     return (
       <Nav.Link href="/Settings">App Settings</Nav.Link>
     );

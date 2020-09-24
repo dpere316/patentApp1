@@ -1,10 +1,15 @@
 var createError = require('http-errors');
 var express = require('express');
+var session = require('express-session');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var patRouter = require('./routes/get-pat-data');
+var mkUsrRouter = require('./routes/make-usr');
+var atUsrRouter = require('./routes/auth-usr');
+var atStRouter = require('./routes/get-auth-status');
+var loUsrRouter = require('./routes/usr-logout');
 
 var app = express();
 
@@ -13,12 +18,18 @@ var app = express();
 //app.set('view engine', 'jade');
 
 app.use(logger('dev'));
+app.set('trust proxy', 1)
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(session({secret:"testing"}))
 //app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api/get-pat-data', patRouter);
+app.use('/auth/make-usr', mkUsrRouter);
+app.use('/auth/auth-usr', atUsrRouter);
+app.use('/auth/get-auth-status', atStRouter);
+app.use('/auth/usr-logout', loUsrRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
