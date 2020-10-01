@@ -4,6 +4,7 @@ import Home from "./components/pages/home"; // home
 import Login from "./components/pages/login"; // login
 import Profile from "./components/pages/profile"; // profile
 import NavBar from "./components/component/navBar"; // navbar
+import Dashboard from "./components/component/dashboard"; //dashboard
 import { Switch, Route } from "react-router-dom";
 import "./styles/custom.scss"; 
 import Logout from "./components/pages/logout";
@@ -19,7 +20,6 @@ class App extends Component {
   }
 
   componentDidMount() {
-    console.log(document.cookies);
     this.callApi()
       .then(res => this.setState({ auth: res }))
       .catch(err => console.log(err));
@@ -42,6 +42,7 @@ class App extends Component {
           <Route path="/" exact component={Home} />
           <Route path="/Patents" component={ViewPatent} />
           <Route path="/Profile"  component={() => <Profile auth={this.state.auth}/>} />
+          <Route path="/Dashboard"  component={() => <Dashboard auth={this.state.auth}/>} />
           <Route path="/Log" component={Login} />
           <Route path="/Logout" component={Logout} />
         </Switch>

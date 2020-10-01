@@ -3,11 +3,14 @@ import React, { Component } from 'react';
 class Profile extends Component {
     render() {
         return (
-            <div>
-                <p>Name: {this.props.auth.name}</p>
-                <p>Role: {this.props.auth.role}</p>
-                <p>Email: {this.props.auth.email}</p>
+
+            <div className="mt-3 ml-3">
+                <div>Name: {this.props.auth.name}</div>
+                <div>Role: {this.props.auth.role}</div>
+                <div>Email: {this.props.auth.email}</div>     
             </div>
+          
+  
         );
     }
 }

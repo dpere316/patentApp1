@@ -40,7 +40,7 @@ function roleSpecific(auth) {
     return (<Nav.Link href="/Profile">Profile</Nav.Link>);
   }else if (auth['role'] === "admin"){
     return (
-      <Nav.Link href="/Settings">App Settings</Nav.Link>
+      <Nav.Link href="/Dashboard">App Settings</Nav.Link>
     );
   }
 }

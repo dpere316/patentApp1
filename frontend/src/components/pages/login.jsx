@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Form, Button} from "react-bootstrap";
 
 class Login extends Component {
 
@@ -29,7 +30,7 @@ class Login extends Component {
       email: this.state.email,
       pass: this.state.pass
     }
-
+    console.log(usrAuth)
     const response = await fetch('/auth/auth-usr', {
       method: 'POST',
       headers: {
@@ -47,17 +48,15 @@ class Login extends Component {
 
   render() {
     return (
-      <form onSubmit={this.authUser}>
-        <label>
-          Email:
-          <input type="text" onChange={this.handleEChange} />
-        </label>
-        <label>
-          Password:
-          <input type="password" onChange={this.handlePChange} />
-        </label>
-        <input type="submit" value="Submit" />
-      </form>
+      <Form inline onSubmit={this.authUser} className="mt-3 ml-3" >
+      <Form.Group controlId="formBasicEmail" >
+          <Form.Control  className="mb-2 mr-sm-2" id="inlineFormInputName2" type="text" placeholder="Email" onChange={this.handleEChange} />
+      </Form.Group>
+      <Form.Group controlId="formBasicPassword">
+          <Form.Control className="mb-2 mr-sm-2" type="password" placeholder="Password" onChange={this.handlePChange} />
+      </Form.Group>
+        <Button  className="mb-2 mr-sm-2" variant ="primary" type="submit"> Submit</Button>
+      </Form>
     );
   }
 }
