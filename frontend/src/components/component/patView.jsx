@@ -1,9 +1,6 @@
 import React from "react";
 import { Card } from "react-bootstrap";
 import Iframe from 'react-iframe';
-//import { useAuth0 } from "@auth0/auth0-react";
-
-//const regex = /(<([^>]+)>)/ig;
 
 
 const PatView = (props) => {
@@ -14,13 +11,6 @@ const PatView = (props) => {
   return (
     <Card style={{ width: "100%" }}>
       <Card.Body>
-        {/*<Card.Title className="text-center">
-          {props.pat.express.title.plain}
-        </Card.Title>
-        <Card.Text>
-          {props.pat.express.abstract.plain.replace(regex, ' ')}
-          <br />
-        </Card.Text>*/}
         <Iframe
             url={getCorpus(props.pat.express)}
             width="100%"

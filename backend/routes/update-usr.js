@@ -7,11 +7,19 @@ require('dotenv').config();
 router.post('/', function(req, res, next) {
 
     
-    req.body.post.pass = crypto.createHash('md5').update(req.body.post.pass).digest('hex');
+    if (req.body.post.newVals.pass !== "")
+      req.body.post.newVals.pass = crypto.createHash('md5').update(req.body.post.newVals.pass).digest('hex');
+    else {
+      req.body.post.newVals = {
+        email: req.body.post.newVals.email,
+        name: req.body.post.newVals.name,
+        role: req.body.post.newVals.role
+      }
+    }
     jstr = JSON.stringify(req.body.post);
-    console.log(jstr)
+    console.log(jstr);
     var dataToSend;
-    const python = spawn('python',  ['./python/mkusr.py', process.env.MONGO_URL, jstr]);
+    const python = spawn('python',  ['./python/upusr.py', process.env.MONGO_URL, jstr]);
     
     python.stdout.on('data', function (data) {
         console.log('Pipe data from python script ...');
