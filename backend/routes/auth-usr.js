@@ -8,6 +8,7 @@ require('dotenv').config();
 router.post('/', function(req, res, next) {
 
     var dataToSend;
+    console.log(req.body.post)
     const python = spawn('python',  ['./python/getusr.py', process.env.MONGO_URL, req.body.post.email]);
     
     python.stdout.on('data', function (data) {
