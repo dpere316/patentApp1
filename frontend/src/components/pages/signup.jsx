@@ -1,24 +1,18 @@
 import React, { Component } from "react";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class signup extends Component {
   render() {
     return (
-        
       <div className="d-flex justify-content-center ">
         <div className="register-box">
           <div className="register-logo">
-            
-              <b>SignUp</b>
-            
+            <b>SignUp</b>
           </div>
           <div className="card">
             <div className="card-body register-card-body">
               <p className="login-box-msg">Register a new annotator</p>
-              <form
-                action=""
-                method="post"
-              >
+              <form action="" method="post">
                 <div className="input-group mb-3">
                   <input
                     type="text"
@@ -77,16 +71,17 @@ class signup extends Component {
                         defaultValue="agree"
                       />
                       <label htmlFor="agreeTerms">
-                        I agree to the{" "}
-                        <Link to="#">
-                          terms
-                        </Link>
+                        I agree to the <Link to="#">terms</Link>
                       </label>
                     </div>
                   </div>
                   {/* /.col */}
                   <div className="col-4">
-                    <button  type="submit" className="btn btn-primary btn-block" style={{padding:"3%"}}>
+                    <button
+                      type="submit"
+                      className="btn btn-primary btn-block"
+                      style={{ padding: "3%" }}
+                    >
                       Register
                     </button>
                   </div>
@@ -94,10 +89,7 @@ class signup extends Component {
                 </div>
               </form>
 
-              <Link
-                to="#"
-                className="text-center"
-              >
+              <Link to="#" className="text-center">
                 I already have a membership
               </Link>
             </div>
