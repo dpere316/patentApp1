@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 
 class Profile extends Component {
+
+    
     render() {
+        
+
         return (
 
             <div className="mt-3 ml-3">

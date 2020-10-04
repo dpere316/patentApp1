@@ -36,7 +36,7 @@ router.post('/', function(req, res, next) {
                 sameSite: true
             }).send("true")*/
 
-            res.send("true")
+            res.send("true");
         }else{
             res.send("false");
         }

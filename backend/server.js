@@ -7,6 +7,9 @@ var logger = require('morgan');
 
 var patRouter = require('./routes/get-pat-data');
 var mkUsrRouter = require('./routes/make-usr');
+var dlUsrRouter = require('./routes/del-user');
+var vwUsrRouter = require('./routes/get-usr');
+var upUsrRouter = require('./routes/update-usr');
 var atUsrRouter = require('./routes/auth-usr');
 var atStRouter = require('./routes/get-auth-status');
 var loUsrRouter = require('./routes/usr-logout');
@@ -27,7 +30,10 @@ app.use(session({secret:"testing"}))
 //app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api/get-pat-data', patRouter);
-app.use('/auth/make-usr', mkUsrRouter);
+app.use('/api/del-usr', dlUsrRouter);
+app.use('/api/view-usr', vwUsrRouter);
+app.use('/api/update-usr', upUsrRouter);
+app.use('/api/make-usr', mkUsrRouter);
 app.use('/auth/auth-usr', atUsrRouter);
 app.use('/auth/get-auth-status', atStRouter);
 app.use('/auth/usr-logout', loUsrRouter);

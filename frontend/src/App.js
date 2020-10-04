@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ViewPatent from "./components/pages/viewPatent"; // viewpatent
 import Home from "./components/pages/home"; // home
 import Login from "./components/pages/login"; // login
+import Setting from "./components/pages/settings"; // profile
 import Profile from "./components/pages/profile"; // profile
 import NavBar from "./components/component/navBar"; // navbar
 import Dashboard from "./components/component/dashboard"; //dashboard
@@ -45,6 +46,7 @@ class App extends Component {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/Patents" component={ViewPatent} />
+          <Route path="/Settings" component={Setting} />
           <Route path="/Profile"  component={() => <Profile auth={this.state.auth}/>} />
           <Route exact path="/Dashboard"  component={() => <Dashboard auth={this.state.auth}/>} />
           <Route path="/Dashboard/AddUser" component={() => <AddUser auth={this.state.auth}/>} />
