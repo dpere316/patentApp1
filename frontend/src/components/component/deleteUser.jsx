@@ -1,34 +1,33 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class DeleteUser extends Component {
-
   constructor() {
     super();
-    
+
     this.state = {
-      email: ''
+      email: "",
     };
   }
 
-  delUser = async e => {
+  delUser = async (e) => {
     e.preventDefault();
-    
-    const response = await fetch('/api/del-usr', {
-      method: 'POST',
+
+    const response = await fetch("/api/del-usr", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({ post: this.state.email }),
     });
     const body = await response.text();
-        
+
     console.log(body);
   };
 
-  handleEChange = e => {
-    this.setState({email: e.target.value});
-  }
-    
+  handleEChange = (e) => {
+    this.setState({ email: e.target.value });
+  };
+
   render() {
     return (
       <form onSubmit={this.delUser}>

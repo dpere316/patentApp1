@@ -8,7 +8,7 @@ function header(props) {
         DashBoard V3
         <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
           <li className="nav-item active">
-            <Link className="nav-link" to="/AddUser">
+            <Link className="nav-link" to="/Dashboard/AddUser">
               Add User <span className="sr-only">(current)</span>{" "}
             </Link>
           </li>

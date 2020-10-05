@@ -1,10 +1,8 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 function content(props) {
   return (
-   <div classname="content-wrapper style= min-height: 626px;">
-
-    
+    <div className="content-wrapper style= min-height: 626px;">
       {/* /.content-header */}
       {/* Main content */}
       <div className="content mt-5">
@@ -15,7 +13,7 @@ function content(props) {
                 <div className="card-header border-0">
                   <div className="d-flex justify-content-between">
                     <h3 className="card-title">Annotator Activity</h3>
-                    <a href="javascript:void(0);">View Report</a>
+                    <Link to="#">View Report</Link>
                   </div>
                 </div>
                 <div className="card-body">
@@ -53,7 +51,7 @@ function content(props) {
                 <div className="card-header border-0">
                   <div className="d-flex justify-content-between">
                     <h3 className="card-title">Machine Learning Patents</h3>
-                    <a href="javascript:void(0);">View Report</a>
+                    <Link to="#">View Report</Link>
                   </div>
                 </div>
                 <div className="card-body">
@@ -75,10 +73,12 @@ function content(props) {
                   </div>
                   <div className="d-flex flex-row justify-content-end">
                     <span className="mr-2">
-                      <i className="fas fa-square text-primary" /> Machine Learning
+                      <i className="fas fa-square text-primary" /> Machine
+                      Learning
                     </span>
                     <span>
-                      <i className="fas fa-square text-gray" /> Not Machine Learning
+                      <i className="fas fa-square text-gray" /> Not Machine
+                      Learning
                     </span>
                   </div>
                 </div>

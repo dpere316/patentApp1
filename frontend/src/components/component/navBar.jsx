@@ -17,7 +17,6 @@ class navBar extends Component {
          <Nav.Link className="active" as={Link} to="/home" >  Home </Nav.Link> 
           <Nav.Link  as={Link} to="/Patents">Patents</Nav.Link>
           <Nav.Link as={Link} to="/About">About</Nav.Link>
-          <Nav.Link  as ={Link} to="/SignUp">SignUp</Nav.Link>
           {roleSpecific(this.props.loginStat)}
           {inOrOut(this.props.loginStat)}
         </Nav>
