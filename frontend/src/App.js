@@ -44,7 +44,7 @@ class App extends Component {
         <NavBar loginStat={this.state.auth}/>
         <Switch>
           <Route path="/" exact component={Home} />
-          <Route path="/Patents" component={ViewPatent} />
+          <Route path="/Patents" component={() => <ViewPatent auth={this.state.auth}/>} />
           <Route path="/Settings" component={Setting} />
           <Route path="/Profile"  component={() => <Profile auth={this.state.auth}/>} />
           <Route exact path="/Dashboard"  component={() => <Dashboard auth={this.state.auth}/>} />
