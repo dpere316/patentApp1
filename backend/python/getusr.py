@@ -11,7 +11,8 @@ def getUsr():
     ret = {
       "name" : usr['name'],
       "pass" : usr['password'],
-      "role" : usr['role']
+      "role" : usr['role'],
+      
     }
   else:
     ret = {

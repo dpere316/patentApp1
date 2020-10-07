@@ -13,7 +13,7 @@ var upUsrRouter = require('./routes/update-usr');
 var atUsrRouter = require('./routes/auth-usr');
 var atStRouter = require('./routes/get-auth-status');
 var loUsrRouter = require('./routes/usr-logout');
-
+var labelRouter = require('./routes/label-response')
 
 const app = express();
 
@@ -37,6 +37,7 @@ app.use('/api/make-usr', mkUsrRouter);
 app.use('/auth/auth-usr', atUsrRouter);
 app.use('/auth/get-auth-status', atStRouter);
 app.use('/auth/usr-logout', loUsrRouter);
+app.use('/api/label-response', labelRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
