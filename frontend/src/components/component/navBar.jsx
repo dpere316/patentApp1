@@ -15,7 +15,7 @@ class navBar extends Component {
         <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto">
          <Nav.Link className="active" as={Link} to="/home" >  Home </Nav.Link> 
-          <Nav.Link  as={Link} to="/Patents">Patents</Nav.Link>
+         <Nav.Link as={Link} to="/Patents">Patents</Nav.Link>
           <Nav.Link as={Link} to="/About">About</Nav.Link>
           {roleSpecific(this.props.loginStat)}
           {inOrOut(this.props.loginStat)}
@@ -41,12 +41,16 @@ function roleSpecific(auth) {
     return;
   }
   if (auth['role'] === "annotator"){
-    return (<Nav.Link as={Link} to="/Profile">Profile</Nav.Link>);
+    return (<Nav.Link as={Link} to="/Profile">Profile</Nav.Link> );
+    
+
   }else if (auth['role'] === "admin"){
     return (
       <Nav.Link as={Link} to="/Dashboard">Dashboard</Nav.Link>
     );
   }
 }
+//<Nav.Link as={Link} to="/Patents">Patents</Nav.Link>
+
 
 export default navBar;
