@@ -6,12 +6,12 @@ import Setting from "./components/pages/settings"; // profile
 import Profile from "./components/pages/profile"; // profile
 import NavBar from "./components/component/navBar"; // navbar
 import Dashboard from "./components/component/dashboard"; //dashboard
+import ViewUser from "./components/pages/viewUser"; //View Users
 import AddUser from "./components/pages/adduser"; //Add User
 import AddPatent from "./components/pages/addpatent"; //Add Patent
 import { Switch, Route } from "react-router-dom";
 import "./styles/custom.scss"; 
 import Logout from "./components/pages/logout";
-import addpatent from "./components/pages/addpatent";
 
 class App extends Component {
 
@@ -49,6 +49,7 @@ class App extends Component {
           <Route path="/Profile"  component={() => <Profile auth={this.state.auth}/>} />
           <Route exact path="/Dashboard"  component={() => <Dashboard auth={this.state.auth}/>} />
           <Route path="/Dashboard/AddUser" component={() => <AddUser auth={this.state.auth}/>} />
+          <Route path="/Dashboard/ViewUser" component={() => <ViewUser auth={this.state.auth}/>} />
           <Route path="/Dashboard/AddPatent" component={() => <AddPatent auth={this.state.auth}/>} />
           <Route path="/Log" component={Login} />
           <Route path="/Logout" component={Logout} />
