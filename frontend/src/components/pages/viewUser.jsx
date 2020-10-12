@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import UpdateUser from '../component/updateUser';
+
 
 
 
@@ -14,19 +14,17 @@ class ViewUser extends Component {
     };
   }
 
-  getUser = async e => {
-    e.preventDefault();
+  componentDidMount(){
+      this.getUser()
+  }
+
+  getUser = async() => {
     
-    const response = await fetch('/api/view-usr', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ post: this.state.email }),
-    });
+    const response = await fetch('/api/view-usr')
+    
     const body = await response.text();
     
-    this.setState({gotu:JSON.parse(body)});
+    // this.setState({gotu:JSON.parse(body)});
     console.log(body);
   };
 
@@ -280,32 +278,7 @@ class ViewUser extends Component {
             </tbody>
           </table>
         </div>
-        {/* Card footer */}
-        <div className="card-footer py-4">
-          <nav aria-label="...">
-            <ul className="pagination justify-content-end mb-0">
-              <li className="page-item disabled">
-                <a className="page-link" href="https://demos.creative-tim.com/argon-dashboard/examples/tables.html#" tabIndex={-1}>
-                  <i className="fas fa-angle-left" />
-                  <span className="sr-only">Previous</span>
-                </a>
-              </li>
-              <li className="page-item active">
-                <a className="page-link" href="https://demos.creative-tim.com/argon-dashboard/examples/tables.html#">1</a>
-              </li>
-              <li className="page-item">
-                <a className="page-link" href="https://demos.creative-tim.com/argon-dashboard/examples/tables.html#">2 <span className="sr-only">(current)</span></a>
-              </li>
-              <li className="page-item"><a className="page-link" href="https://demos.creative-tim.com/argon-dashboard/examples/tables.html#">3</a></li>
-              <li className="page-item">
-                <a className="page-link" href="https://demos.creative-tim.com/argon-dashboard/examples/tables.html#">
-                  <i className="fas fa-angle-right" />
-                  <span className="sr-only">Next</span>
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </div>
+        
       </div>
     </div>
   </div>
@@ -318,13 +291,4 @@ class ViewUser extends Component {
 }
 
 export default ViewUser;
-      // <div>
-      //   <form onSubmit={this.getUser}>
-      //     <label>
-      //       Email:
-      //       <input type="text" onChange={this.handleEChange} />
-      //     </label>
-      //     <input type="submit" value="View" />
-      //   </form>
-      //   <UpdateUser auth={this.state.gotu}/>
-      // </div>
+      

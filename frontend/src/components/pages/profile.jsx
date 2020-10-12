@@ -94,9 +94,3 @@ class Profile extends Component {
 }
 
 export default Profile;
-
-            // <div className="mt-3 ml-3">
-            //     
-            //     <div>Role: {this.props.auth.role}</div>
-            //     <div>Email: {this.props.auth.email}</div>     
-            // </div>
