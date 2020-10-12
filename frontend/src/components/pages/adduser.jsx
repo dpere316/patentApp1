@@ -53,7 +53,7 @@ class adduser extends Component {
 
   render() {
     return (
-      <div className="d-flex justify-content-center ">
+      <div className="d-flex justify-content-center mt-5">
         <div className="register-box">
           <div className="register-logo">
             <b>Add User</b>

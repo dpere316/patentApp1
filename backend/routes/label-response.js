@@ -4,10 +4,12 @@ var router = express.Router();
 const {spawn} = require('child_process');
 require('dotenv').config();
 
-router.get('/', function(req, res, next) {
+router.post('/', function(req, res, next) {
 
+    jstr = JSON.stringify(req.body.post);
+    console.log(jstr)
     var dataToSend;
-    const python = spawn('python',  ['./python/getMultipleUsers.py', process.env.MONGO_URL, req.body.post]);
+    const python = spawn('python',  ['./python/labelResponse.py', process.env.MONGO_URL, jstr]);
     
     python.stdout.on('data', function (data) {
         console.log('Pipe data from python script ...');
@@ -17,11 +19,8 @@ router.get('/', function(req, res, next) {
     
     python.on('close', (code) => {
         console.log(`child process close all stdio with code ${code}`);
-        console.log(dataToSend)
-        res.send(dataToSend)
-        
-        console.log(dataToSend)
-       
+
+        res.send(dataToSend);
     });
 });
 

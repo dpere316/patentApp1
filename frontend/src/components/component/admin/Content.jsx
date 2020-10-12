@@ -2,10 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 function content(props) {
   return (
-    <div className="content-wrapper style= min-height: 626px;">
+    <div>
       {/* /.content-header */}
       {/* Main content */}
-      <div className="content mt-5">
+      <div className="content mt-5 ">
         <div className="container-fluid">
           <div className="row">
             <div className="col-lg-6">
