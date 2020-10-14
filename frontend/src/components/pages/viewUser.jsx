@@ -24,7 +24,7 @@ class ViewUser extends Component {
     
     const body = await response.text();
     
-    // this.setState({gotu:JSON.parse(body)});
+    this.setState({gotu:JSON.parse(body)});
     console.log(body);
   };
 
@@ -32,9 +32,14 @@ class ViewUser extends Component {
     this.setState({email: e.target.value});
   }
 
+  displayUsers = () => {
+    
+  }
+
   render() {
     return (
 <div className="container-fluid mt-5">
+
   <div className="row">
     <div className="col">
       <div className="card">
