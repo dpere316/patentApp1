@@ -4,15 +4,12 @@ import './index.scss';
 import "./styles/custom.scss"
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { BrowserRouter as Router } from "react-router-dom";
-import Auth0ProviderWithHistory from "./components/auth/auth-hist";
+import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.render(
-  <Router>
-    <Auth0ProviderWithHistory>
-      <App />
-    </Auth0ProviderWithHistory>
-  </Router>,
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
   document.getElementById("root")
 );
 

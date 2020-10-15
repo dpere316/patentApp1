@@ -1,9 +1,8 @@
-import { useAuth0 } from "@auth0/auth0-react";
 
-const Logout = () => {
-  const { logout } = useAuth0();
-  logout()
-  //cookies.remove("user");
+const Logout = async (props) => {
+  await fetch('/auth/usr-logout');
+  props.history.push('/');
+  window.location.reload(false);
 };
 
 export default Logout;
