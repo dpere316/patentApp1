@@ -8,6 +8,7 @@ import NavBar from "./components/component/navBar"; // navbar
 import { Switch, Route } from "react-router-dom";
 import "./styles/custom.scss"; 
 import Logout from "./components/pages/logout";
+import PassReset from "./components/pages/passReset";
 
 class App extends Component {
 
@@ -46,6 +47,7 @@ class App extends Component {
           <Route path="/Profile"  component={() => <Profile auth={this.state.auth}/>} />
           <Route path="/Log" component={Login} />
           <Route path="/Logout" component={Logout} />
+          <Route path="/PasswordReset" component={PassReset} />
         </Switch>
       </div>
     );

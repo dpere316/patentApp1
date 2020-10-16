@@ -13,6 +13,8 @@ var upUsrRouter = require('./routes/update-usr');
 var atUsrRouter = require('./routes/auth-usr');
 var atStRouter = require('./routes/get-auth-status');
 var loUsrRouter = require('./routes/usr-logout');
+var passResetRouter = require('./routes/send-pass-reset-email');
+var vPassResetRouter = require('./routes/verify-pass-reset');
 
 var app = express();
 
@@ -36,6 +38,8 @@ app.use('/api/make-usr', mkUsrRouter);
 app.use('/auth/auth-usr', atUsrRouter);
 app.use('/auth/get-auth-status', atStRouter);
 app.use('/auth/usr-logout', loUsrRouter);
+app.use('/auth/pass-reset', passResetRouter);
+app.use('/auth/verify-pass-reset', vPassResetRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
