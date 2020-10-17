@@ -30,7 +30,7 @@ function getCorpus(pat){
   
   if (pat.patentCorpus === "USPAT"){
     //return("http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO1&Sect2=HITOFF&d=PALL&p=1&u=%2Fnetahtml%2FPTO%2Fsrchnum.htm&r=1&f=G&l=50&s1="+id+".PN.&OS=PN/"+id+"&RS=PN/"+id);
-    return("https://pimg-fpiw.uspto.gov/"+id.substring(6, 8)+"/"+id.substring(3, 6)+"/"+id.substring(0, 3)+"/0.pdf")
+    return("https://pimg-fpiw.uspto.gov/fdd/"+id.substring(6, 8)+"/"+id.substring(3, 6)+"/"+id.substring(0, 3)+"/0.pdf")
   }else if (pat.patentCorpus === "PGPUB"){
     //return("http://appft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&u=%2Fnetahtml%2FPTO%2Fsearch-adv.html&r=1&f=G&l=50&d=PG01&p=1&S1="+id+".PGNR.&OS=DN/"+id+"&RS=DN/"+id);
   }

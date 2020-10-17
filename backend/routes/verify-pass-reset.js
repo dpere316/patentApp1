@@ -8,13 +8,14 @@ router.get('/', function(req, res, next) {
 
   const key = new rsa();
   key.importKey(process.env.RSA_PRIV, 'pkcs8');
-  message = key.decrypt("dmGhgM47r+w6uBuTGFxpYenTpQr9P1HyP7xNbkYAzfG48P4nlVe7hV7Najt1NOMa/yUuwttt3ckCWsnyI/6n7jRwzVVpnUdgRfucTkLdllGpUlZwNtWrVnaP6t1OixbnMyCZXYsSo7RLCA/+r7UpJGkhvCHkbkAKBKJNHC4bgiMDH61OVGwgONlkZUGmKaxkQ+mVFCAQq8KkoMldg9Ugq8TkZeYYpXi6YuavQp58+MYnsBTPaZzR8ZjUD9tyinPP", 'utf8');
+  message = key.decrypt("nNAQxrmNuAJxZni+60ysLLGjHuiZqcQ6/MiOAl1FTUBhMELFdx0u4sgYlxEf6h9EAMbFJy2wrYyaEue772vl65fSQ4V7iZv6WNfsP+yK6YFR/WK24+PF6Tc6EvZFsXq/NSk2m/FJKhjJzdCP3fpoSru2iuoOr+ulph3caqJdriE2R01LEssVu0pXQsEJVhPAR1KV/DSfh2/vCWcFSf8IhvNY19N6vvFE+VrY9/VuzLvDxClqWL+f/rfDAdke3/R7", 'utf8');
   console.log(message);
   try {
     jMess = JSON.parse(message);
-    console.log("past parse");
+    
     var dt = datetime.create();
     var formatted = dt.format('m/d/y H:M:S');
+    
     tokenDate = new Date(jMess.time);
     curDate = new Date(formatted);
 

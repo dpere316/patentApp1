@@ -30,7 +30,7 @@ router.get('/', function(req, res, next) {
     from: 'LAC-password-reset@lac.com', 
     to: userEmail,      
     subject: 'password reset link',
-    text: 'PAsSwoRd gO BrRr!! ' + "http://localhost:3000/PasswordReset?en=" + encrypted
+    text: 'jashdkjashdoauysgdf!! ' + "http://localhost:3000/PasswordReset?en=" + encrypted
   };
 
   transport.sendMail(message, function(err, info) {

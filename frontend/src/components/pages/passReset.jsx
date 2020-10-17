@@ -14,25 +14,28 @@ class PassReset extends Component {
       responseToPost: '',
     };
   }
-/*
-  componentDidMount() {
-    this.callApi()
-      .then(res => this.setState({ pat: res }))
-      .catch(err => console.log(err));
+
+  authToken = async e => {
+    e.preventDefault();
+
+    const en = {
+      encryption: new URLSearchParams(this.props.location.search).get("en")
+    }
+
+    const response = await fetch('/auth/verify-pass-reset', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ post: en }),
+    });
+    const body = await response.text(); 
+
+    this.setState({responseToPost: body})
   }
-  
-  callApi = async () => {
-    const response = await fetch('/api/get-pat-data');
-    const body = await response.json();
 
-    if (response.status !== 200) throw Error(body.message);
 
-    return body;
-  };
-*/
   typeRender(){
-    var enPar = new URLSearchParams(this.props.location.search).get("en");
-    console.log(enPar);
   }
 
   render() {
