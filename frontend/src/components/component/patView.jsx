@@ -10,6 +10,7 @@ const PatView = (props) => {
   
   return (
     <Card style={{ width: "100%" }}>
+
       <Card.Body>
         <Iframe
             url={getCorpus(props.pat.express)}

@@ -1,20 +1,22 @@
 import React, { Component } from "react";
 import { Navbar, Nav } from "react-bootstrap";
+import { Link} from "react-router-dom";
+
 
 class navBar extends Component {
 
   render(){
     return (      
       <Navbar bg="primary" expand="lg" variant="dark">
-        <Navbar.Brand href="#">
+        <Navbar.Brand href="/">
           Patent App
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto">
-          <Nav.Link className="active" href="/home">Home</Nav.Link>
-          <Nav.Link href="/Patents">Patents</Nav.Link>
-          <Nav.Link href="/About">About</Nav.Link>
+         <Nav.Link className="active" as={Link} to="/home" >  Home </Nav.Link> 
+          <Nav.Link  as={Link} to="/Patents">Patents</Nav.Link>
+          <Nav.Link as={Link} to="/About">About</Nav.Link>
           {roleSpecific(this.props.loginStat)}
           {inOrOut(this.props.loginStat)}
         </Nav>
@@ -26,10 +28,12 @@ class navBar extends Component {
 function inOrOut(login) {
   //console.log(this.props.loginStat)
   if (login){
-    return (<Nav.Link href="/Logout">Logout</Nav.Link>);
+    return (<Nav.Link as={Link} to="/Logout">Logout</Nav.Link>);
   }else{
-    return (<Nav.Link href="/Log">Login</Nav.Link>);
+    return (<Nav.Link as={Link} to="/Log">Login</Nav.Link>
+    );
   }
+  
 }
 
 function roleSpecific(auth) {
@@ -37,10 +41,10 @@ function roleSpecific(auth) {
     return;
   }
   if (auth['role'] === "annotator"){
-    return (<Nav.Link href="/Profile">Profile</Nav.Link>);
+    return (<Nav.Link as={Link} to="/Profile">Profile</Nav.Link>);
   }else if (auth['role'] === "admin"){
     return (
-      <Nav.Link href="/Settings">App Settings</Nav.Link>
+      <Nav.Link as={Link} to="/Dashboard">Dashboard</Nav.Link>
     );
   }
 }
