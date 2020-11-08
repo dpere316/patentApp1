@@ -6,8 +6,7 @@
     "client": "cd frontend && yarn start",
     "server": "nodemon server.js",
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
-    "start": "node server.js",
-    "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
+    "prod": "node server.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",

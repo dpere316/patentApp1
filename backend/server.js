@@ -19,9 +19,17 @@ const app = express();
 
 app.use(express.static(path.join(__dirname, 'build')));
 
-app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
+function sendToFront(req, res) {
+  res.sendFile(path.join(__dirname, 'build'));
+}
+
+if (process.env.NODE_ENV === 'production') {
+  app.get('/', sendToFront);
+  app.get('/home', sendToFront);
+  app.get('/Log', sendToFront);
+  app.get('/Patent', sendToFront);
+  app.get('/About', sendToFront);
+}
 
 const port = process.env.PORT || 3000;
 
@@ -62,16 +70,6 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.send(err);
 });
-
-/*if (process.env.NODE_ENV === 'production') {
-  // Serve any static files
-  app.use(express.static(path.join(__dirname, '../build')));
-    
-  // Handle React routing, return all requests to React app
-  app.get('*', function(req, res) {
-    res.sendFile(path.join(__dirname, '../build', 'index.html'));
-  });
-}*/
 
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
