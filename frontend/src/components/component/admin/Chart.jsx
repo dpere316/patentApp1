@@ -20,6 +20,7 @@ const Chart = () => {
       });
 
     };
+    
 
   useEffect(() => {
     chart();
