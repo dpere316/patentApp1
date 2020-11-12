@@ -17,6 +17,22 @@ var labelRouter = require('./routes/label-response')
 
 const app = express();
 
+app.use(express.static(path.join(__dirname, 'build')));
+
+function sendToFront(req, res) {
+  res.sendFile(path.join(__dirname, 'build'));
+}
+
+if (process.env.NODE_ENV === 'production') {
+  app.get('/', sendToFront);
+  app.get('/home', sendToFront);
+  app.get('/Log', sendToFront);
+  app.get('/Patent', sendToFront);
+  app.get('/About', sendToFront);
+}
+
+const port = process.env.PORT || 3000;
+
 // view engine setup
 //app.set('views', path.join(__dirname, 'views'));
 //app.set('view engine', 'jade');
@@ -27,7 +43,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(session({secret:"testing"}))
-//app.use(express.static(path.join(__dirname, 'public')));
+//app.use(express.static(path.join(__dirname, 'build')));
 
 app.use('/api/get-pat-data', patRouter);
 app.use('/api/del-usr', dlUsrRouter);
@@ -54,5 +70,8 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.send(err);
 });
+
+
+app.listen(port, () => console.log(`Listening on port ${port}`));
 
 module.exports = app;

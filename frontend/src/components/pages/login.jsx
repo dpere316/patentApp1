@@ -43,7 +43,7 @@ class Login extends Component {
     if (body === "true") {
       this.props.history.push("/");
       window.location.reload(false);
-    }
+    } else {console.log("failed login")}
   };
 
   render() {
