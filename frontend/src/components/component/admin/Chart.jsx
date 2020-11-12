@@ -2,14 +2,14 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { Bar } from "react-chartjs-2";
 
-const Chart = () => {
-
+const Chart = (props) => {
+ 
   const [chartData, setChartData] = useState({});
 
   const chart = () => {
       
     setChartData({
-        labels:['user1','user2','user3','user4','user5','user6'], // name of annotator
+        labels:[], // name of annotator
         datasets: [{
             label:'# of Patents Annotated',
             data: [32, 22, 17, 20, 15, 26], // number of patents annotated
@@ -20,7 +20,7 @@ const Chart = () => {
       });
 
     };
-    
+
 
   useEffect(() => {
     chart();

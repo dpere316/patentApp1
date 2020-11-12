@@ -89,8 +89,13 @@ class viewPatent extends Component {
   render() {
     return (
       this.state.pat && (
-        <div>
+        <div className='row'>
+
+        <div className = 'col'>
           <PatView pat={this.state.pat} />
+        </div>
+
+        <div className='col'>
 
           <Form className="container mt-5" onSubmit={this.labels}>
             <Form.Group controlId="exampleForm.SelectCustomSizeSm">
@@ -113,8 +118,6 @@ class viewPatent extends Component {
               {" "}
               Submit
             </Button>
-          </Form>
-
           <div className="d-flex justify-content-end">
             <Button
               variant="primary"
@@ -126,6 +129,10 @@ class viewPatent extends Component {
               Next
             </Button>
           </div>
+          </Form>
+        </div>
+
+
         </div>
       )
     );

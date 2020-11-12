@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-
-
-
+import GetUser from '../component/getUser';
 
 class ViewUser extends Component {
 
@@ -9,47 +7,53 @@ class ViewUser extends Component {
     super();
     
     this.state = {
-      gotu: {
-
-      },
-      email: {
-
-      }
+      gotu:'buffer',
     };
   }
 
-  componentDidMount(){
-      this.getUser()
-  }
 
-  getUser = async() => {
-    
-    const response = await fetch('/api/view-usr')
-    
-    const body = await response.text();
-    
-    this.setState({gotu:JSON.parse(body)});
-    console.log(response);
-  };
-
-
-  handleEChange = e => {
-    this.setState({email: e.target.value});
+  handleDataUpdate = data => {
+    this.setState({gotu:data});
+    console.log(data)
   }
 
   displayUsers = () => {
-    return (
-      <tr>
-        <td>
-          
-        </td>
-      </tr>
+   return this.state.gotu.express.array.map((user) => {
 
-    )
+     return (
+       <tr>
+         <td>{user.email}</td>
+         <td>{user.name}</td>
+         <td>{user.role}</td>
+         <td><button onClick={() => { this.delUser(user.email) }} id = {user.id} className='close float-left'>&times;</button></td>
+       </tr>
+ 
+     )
+
+   })
+  }
+
+  delUser = async (email) => {
+    console.log(email)
+  
+    const response = await fetch("/api/del-usr", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ post: email}),
+    });
+    const body = await response.text();
+    console.log(body);
+    window.location.reload(false);
   }
 
   render() {
+
     return (
+
+this.state.gotu.express ? (
+
 <div className="container-fluid mt-5">
 
   <div className="row">
@@ -71,7 +75,7 @@ class ViewUser extends Component {
               </tr>
             </thead>
             <tbody className="list">
-            
+            {this.displayUsers()}
             </tbody>
           </table>
         </div>
@@ -80,11 +84,15 @@ class ViewUser extends Component {
     </div>
   </div>
   
-  
 </div>
-
+      ) : (<div>
+     
+      <GetUser changeParentState = {()=> {this.handleDataUpdate()}}/>
+      {/* Insert Loading Screen */}
+      </div>)
     );
   }
+    
 }
 
 export default ViewUser;

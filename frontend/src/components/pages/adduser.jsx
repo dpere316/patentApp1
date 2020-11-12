@@ -31,8 +31,8 @@ class adduser extends Component {
       body: JSON.stringify({ post: usrAuth }),
     });
     const body = await response.text();
-
     console.log(body);
+    window.location.reload(false);
   };
 
   handleNChange = (e) => {

@@ -37,7 +37,7 @@ class Profile extends Component {
                 <div className="col-lg-6">
                   <div className="form-group">
                     <label className="form-control-label" htmlFor="input-first-name">First name</label>
-                    <input type="text" id="input-first-name" className="form-control" placeholder="First name" defaultValue="Lucky" />
+                    <input type="text" id="input-first-name" className="form-control" placeholder="First name" defaultValue={this.props.auth.name} />
                   </div>
                 </div>
                 <div className="col-lg-6">
@@ -50,7 +50,7 @@ class Profile extends Component {
             </div>
             <hr className="my-4" />
             {/* Address */}
-            <h6 className="heading-small text-muted mb-4">Contact information</h6>
+            {/* <h6 className="heading-small text-muted mb-4">Contact information</h6>
             <div className="pl-lg-4">
               <div className="row">
                 <div className="col-md-12">
@@ -80,7 +80,7 @@ class Profile extends Component {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
           </form>
         </div>
       </div>
