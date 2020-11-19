@@ -8,6 +8,7 @@ import Dashboard from "./components/component/dashboard"; //dashboard
 import ViewUser from "./components/pages/viewUser"; //View Users
 import AddUser from "./components/pages/adduser"; //Add User
 import AddPatent from "./components/pages/addpatent"; //Add Patent
+import About from "./components/pages/about" // About page
 import { Switch, Route } from "react-router-dom";
 import "./styles/custom.scss"; 
 import Logout from "./components/pages/logout";
@@ -45,6 +46,7 @@ class App extends Component {
           <Route path="/" exact component={Home} />
           <Route path="/Patents" component={() => <ViewPatent auth={this.state.auth}/>} />
           <Route path="/Profile"  component={() => <Profile auth={this.state.auth}/>} />
+          <Route path="/About"  component={() => <About auth={this.state.auth}/>} />
           <Route exact path="/Dashboard"  component={() => <Dashboard auth={this.state.auth}/>} />
           <Route path="/Dashboard/AddUser" component={() => <AddUser auth={this.state.auth}/>} />
           <Route path="/Dashboard/ViewUser" component={() => <ViewUser auth={this.state.auth}/>} />
